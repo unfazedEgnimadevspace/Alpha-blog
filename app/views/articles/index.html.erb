@@ -16,24 +16,14 @@
     <p>
       <%= link_to "Show this article", article %>
     </p>
+    <p>
+     <%= link_to "Destroy", article_path(article), data:{ turbo_method: :delete, turbo_confirm: "Are you sure"} %>
+    </p>
+    <p>
+     <%= link_to "Edit", edit_article_path(article) %>
+    </p>
   <% end %>
 </div>
 
-<table>
-<thead>
-<tr>
-<th>Title<th>
-<th>Description</th>
-<th>Actions</th>
-<tr>
-</thead>
-<tbody>
-<% @articles.each do |article| %>
-<tr>
-<td><%= article.title %><td>
-<td><%= article.description%> </td>
-<td></td>
-<tr>
-<% end %>
-</tbody>
-</table>
+<p><%= link_to "New Article", new_article_path %></p>
+
