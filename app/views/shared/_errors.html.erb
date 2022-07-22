@@ -1,0 +1,13 @@
+ <% if @article.errors.any? %>
+ <div class="alert alert-danger" role="alert">
+  <h3 class="alert-heading">This prevented your article from being saved</h3>
+  <ul>
+    <% @article.errors.full_messages.each do |msg|%>
+    <li class="red-flash"> <%= msg %></li>
+    <% end %>                                                                                                           
+  </ul>
+      <button type="button" class="close text-white border-danger bg-danger" data-bs-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>  
+ <% end %>

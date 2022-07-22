@@ -1,0 +1,52 @@
+.red-flash{
+    color: rgb(145, 14, 14);
+}
+.green-flash{
+    color: rgb(41, 213, 41);
+}
+#nav-stub{
+   margin-top: -4px !important;
+    box-sizing: border-box;
+    background-color: black !important;
+}
+.nav-link{
+    color: white !important;
+}
+#logo{
+    float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+.jumbotron {
+    
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+    background-image: asset-url('patrick-fore-0gkw_9fy0eQ-unsplash');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 425px;
+  }
+  #home-container{
+    margin-top: 25px;
+  }
+  html,
+  body {
+    height: 100%;
+    
+  }
+
+  
+  #page-content {
+    flex: 1 0 auto;
+    background-color: lightgray;
+    margin-top: -16px ;
+  }
+  #sticky-footer{
+    flex-shrink: none;
+  }
