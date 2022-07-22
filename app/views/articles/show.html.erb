@@ -1,8 +1,22 @@
-<h1>Showing articles details</h1>
 
-<p> <strong>Title:</strong> <%= @article.title %></p>
-<p> <strong>Description:</strong> <%= @article.description %></p>
-
-<p><%= link_to "Edit", edit_article_path(@article) %></p>
-<p><%= link_to "Articles page" , articles_path %></p>
-<p><%= link_to "Delete", article_path(@article), data:{ turbo_method: :delete, turbo_confirm: "Are you sure "} %></p>
+  <h2 class="text-center mt-4"><%= @article.title %></h2>
+  <div class="container">
+      <div class="row justify-content-md-center"> 
+          <div class="col-8 mt-4">
+            <div class="card text-center shadow mb-5 bg-white rounded">
+              <div class="card-header font-italic">
+                  <i>By Akalugo </i>
+              </div>
+              <div class="card-body">
+                <p class="card-text"><%= @article.description %></p>
+                <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info" %>
+                <%= link_to "Delete", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure? "}, class: "btn btn-outline-danger" %>
+              </div>
+              <div class="card-footer text-muted flex">
+               <small> Created at: <%= time_ago_in_words(@article.created_at) %> ago ,
+               Updated at:  <%= time_ago_in_words(@article.updated_at) %>ago </small>
+              </div>
+          </div>
+        </div>  
+      </div>
+  </div>
