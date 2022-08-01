@@ -1,8 +1,8 @@
- <% if @article.errors.any? %>
+ <% if obj.errors.any? %>
  <div class="alert alert-danger" role="alert">
-  <h3 class="alert-heading">This prevented your article from being saved</h3>
+  <h3 class="alert-heading">The following errors prevented <%= obj == @user ? ' your info' : ' your article' %> from being saved</h3>
   <ul>
-    <% @article.errors.full_messages.each do |msg|%>
+    <% obj.errors.full_messages.each do |msg|%>
     <li class="red-flash"> <%= msg %></li>
     <% end %>                                                                                                           
   </ul>
