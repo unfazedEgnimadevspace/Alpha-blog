@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
     before_action :set_article, only: [ :show, :edit, :update, :destroy ]
-
+    before_action :require_user, execept: [ :index, :show]
+    before_action :require_same_user , only: [ :edit, :update, :destroy ]
     def index
         @articles = Article.paginate(page: params[:page], per_page: 2)
     end
@@ -47,5 +48,11 @@ class ArticlesController < ApplicationController
         end
         def article_params
             params.require(:article).permit(:title, :description)
+        end
+        def require_same_user
+            if current_user != @article.user
+                flash[:danger] = "Access denied"
+                redirect_to @article
+            end
         end
 end
