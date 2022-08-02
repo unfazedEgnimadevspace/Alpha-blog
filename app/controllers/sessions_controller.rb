@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       else
         forget(user)
       end
-      flash.now[:success] = "Welcome back!"
+      flash[:success] = "Welcome back!"
       redirect_to user
     else  
       flash[:danger] = "Invalid username and password"
