@@ -20,10 +20,14 @@
                         <%= f.password_field :password,  class: 'form-control shadow rounded', placeholder: "Password"  %>
                     </div>
                 </div>
+                <%= f.label :remember_me, class: "checkbox inline mb-4 mt-2" do %>
+                <%= f.check_box :remember_me %>
+                <span class="text-white">Remember me on this computer</span>
+                <% end %>
                 <div class="form-group d-flex justify-content-center mb-4">
                     <%= f.submit  "Log In", class: "btn btn-outline-light btn-lg " %>
                 </div>
-            <% end %>
+            <% end %>               
         </div>
         <div class= "form-group d-flex justify-content-center text-info">
             <%= link_to "[Cancel and return to articles page]", "#" %> <br />
