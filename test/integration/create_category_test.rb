@@ -1,10 +1,15 @@
 require "test_helper"
 
 class CreateCategoryTest < ActionDispatch::IntegrationTest
+  
+  setup do
+    @admin_user = User.create(username: "johndoe", email: "johndoe@example.com", password: "password", admin: true)
+    sign_in_as(@admin_user)
+  end
+
   test "get new category path and create new category" do
     get new_category_path
     assert_response :success
-
     assert_difference "Category.count", 1 do
       post categories_path, params: { category: { name: "Sports"} }
       assert_response :redirect
