@@ -16,12 +16,18 @@
                         <%= f.text_area :description, rows: 10, class: 'form-control shadow rounded', placeholder: "Description"  %>
                     </div>
                 </div>
+                 <div class="form-group row mb-2">
+                    <%= f.label :category, class: "col-2 col-form-label text-white" %>
+                    <div class="col-10">
+                        <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Please select multiple categories(can\'t be empty)' }, { multiple: true, size: 3, class:'form-select shadow rounded' })%>
+                    </div>
+                </div>
                 <div class="form-group d-flex justify-content-center">
                     <%= f.submit class: "btn btn-outline-light btn-lg " %>
                 </div>
             <% end %>
         </div>
-        <div class= "form-group d-flex justify-content-center text-info">
+        <div class= "form-group d-flex justify-content-center text-info mb-4">
             <%= link_to "[Cancel and return to articles page]", articles_path %> <br />
             
         </div>
