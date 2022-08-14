@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :articles
   resources :users, execept: [:new]
   resources :categories, execept: [:destroy]
+  resources :account_activations, only: [:edit]
 end

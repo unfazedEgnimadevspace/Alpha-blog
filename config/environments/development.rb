@@ -32,7 +32,9 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
-
+  host = 'localhost:3000' # Local server
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
