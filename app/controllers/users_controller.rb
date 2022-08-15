@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [ :show, :edit, :update]
-  before_action :require_user , only: [ :edit, :update]
+  before_action :require_user , only: [ :edit, :update, :following, :followers ]
   before_action :require_same_user, only: [:edit, :update]
   def index
-    @users = User.paginate(page: params[:page], per_page: 2)
+    @users = User.paginate(page: params[:page], per_page: 4)
   end
 
   def show
@@ -41,6 +41,20 @@ class UsersController < ApplicationController
       render 'edit'
     end
 
+  end
+
+  def following
+    @title = "#{current_user.username}'s Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page], per_page: 10 )
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "#{current_user.username}'s Followers"
+     @user = User.find(params[:id])
+     @users = @user.followers.paginate(page: params[:page], per_page: 10 )
+     render 'show_follow'
   end
 
 

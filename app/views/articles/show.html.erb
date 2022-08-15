@@ -17,9 +17,12 @@
               </div>
               <div class="card-body">
                 <p class="card-text"><%= @article.description %></p>
+                <%= image_tag @article.display_image if @article.image.attached? %> <br />
                  <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
+                 <div class="mt-4">
                   <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info" %>
                   <%= link_to "Delete", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure? "}, class: "btn btn-outline-danger" %>
+                </div>  
                 <% end %> 
               </div>
                 <div class="card-footer text-muted flex">

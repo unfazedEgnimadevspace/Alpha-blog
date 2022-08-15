@@ -19,8 +19,8 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        debugger
         @article = Article.new(article_params)
+        @article.image.attach(params[:article][:image])
         @article.user = current_user
         if @article.save
             flash[:success] = "Article was created successfully"
@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
             @article = Article.find_by(id: params[:id])
         end
         def article_params
-            params.require(:article).permit(:title, :description, category_ids: [])
+            params.require(:article).permit(:title, :description, :image, category_ids: [])
         end
         def require_same_user
             if current_user != @article.user && !current_user.admin?
