@@ -1,0 +1,30 @@
+<h2 class="text-center mt-4 mb-5">Password Reset </h2>
+
+
+<div class="container">
+    
+    <div class="row justify-content-center">
+        <div class="col-10"> 
+        
+            <%= form_with(model: @user, url: password_reset_path(params[:id]), local: true,class: "shadow p-3 mb-3 bg-dark rounded", data: {turbo: false }) do |f| %>
+            <%= render "shared/errors", obj: @user %>
+            <%= hidden_field_tag :email, @user.email %>
+                <div class="form-group row mb-2">
+                    <%= f.label :password, class: "col-2 col-form-label text-white" %>
+                    <div class="col-10">
+                        <%= f.password_field :password,  class: 'form-control shadow rounded', placeholder: "Password"  %>
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <%= f.label :password_confirmation, class: "col-2 col-form-label text-white" %>
+                    <div class="col-10">
+                        <%= f.password_field :password_confirmation,  class: 'form-control shadow rounded', placeholder: "Confirm password"  %>
+                    </div>
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <%= f.submit "Update password",  class: "btn btn-outline-light btn-lg " %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

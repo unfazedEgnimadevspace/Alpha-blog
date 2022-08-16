@@ -24,6 +24,6 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to users_path
+    redirect_to users_url
   end
 end
